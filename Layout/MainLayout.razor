@@ -1,0 +1,182 @@
+@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+
+<div class="page-wrapper">
+    <!-- Fluid Logo placed at the top -->
+    <div id="fluid-logo" class="fluid-logo">malichevsky<span class="dot">.</span></div>
+
+    <!-- Independent Floating Theme Toggle -->
+    <button class="floating-theme-toggle" @onclick="ToggleTheme" aria-label="Toggle Theme" title="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- Floating Bottom Navigation Pill -->
+    <nav class="floating-nav">
+        <div class="nav-pill">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="nav-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </span>
+                <span class="nav-text">Home</span>
+            </NavLink>
+            <NavLink class="nav-link" href="about">
+                <span class="nav-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </span>
+                <span class="nav-text">About Me</span>
+            </NavLink>
+            <NavLink class="nav-link" href="experience">
+                <span class="nav-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </span>
+                <span class="nav-text">Experience</span>
+            </NavLink>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        @Body
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>Contact Me</p>
+            <div class="social-links mt-2">
+                <a href="mailto:j.syndicate@outlook.com">Email</a>
+                <a href="https://github.com/malichevsky" target="_blank">GitHub</a>
+                <a href="https://t.me/malichevsky" target="_blank">Telegram</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+
+
+
+
+
+
+    {
+
+
+
+
+
+
+
+        if (firstRender)
+
+
+
+
+
+
+
+        {
+
+
+
+
+
+
+
+            // Initialize the scroll listener for the fluid logo
+
+
+
+
+
+
+
+            await JSRuntime.InvokeVoidAsync("eval", @"
+window.addEventListener('scroll', function() {
+var logo = document.getElementById('fluid-logo');
+if(logo) {
+if(window.scrollY > 50) {
+logo.classList.add('hidden');
+} else {
+logo.classList.remove('hidden');
+}
+}
+});
+");
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private async Task ToggleTheme()
+
+
+
+
+
+
+
+    {
+
+
+
+
+
+
+
+        await JSRuntime.InvokeVoidAsync("toggleTheme");
+
+
+
+
+
+
+
+    }
+}

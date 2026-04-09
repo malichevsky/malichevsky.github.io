@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <base href="/" />
+    <link rel="preload" id="webassembly" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css?v=3" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="Portfolio.styles.css" rel="stylesheet" />
+    <script type="importmap"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="loading-container">
+            <h2 id="loading-title" class="loading-title">Loading...</h2>
+            <div class="loading-progress-bar"></div>
+            <div class="loading-progress-text"></div>
+        </div>
+        <script>
+            const loadingPhrases = ["Loading...", "Hang on...", "Cooking...", "Brewing Coffee...", "Warming up servers...", "Getting things ready..."];
+            document.getElementById('loading-title').innerText = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)];
+        </script>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        // Init theme
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Expose function to Blazor
+        window.toggleTheme = () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        };
+    </script>
+</body>
+
+</html>

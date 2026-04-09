@@ -1,0 +1,172 @@
+@page "/experience"
+
+<PageTitle>Experience | malichevsky</PageTitle>
+
+<div class="section">
+    <div class="container overflow-hidden">
+        <h1 class="display-5 fw-bold mb-5 text-center">My Journey<span class="dot">.</span></h1>
+
+        <div class="timeline-container">
+            <!-- Academic Track Card -->
+            <div class="timeline-item right-track">
+                <div class="timeline-dot"></div>
+                <div class="card timeline-content-card">
+                    <div class="timeline-dot-special">⭐</div>
+                    <div class="card timeline-content-card"
+                        style="border: 1px solid rgba(13, 110, 253, 0.4); box-shadow: 0 0 20px rgba(13, 110, 253, 0.1);">
+                        <div class="timeline-date p-2 rounded mb-3 bg-secondary small fw-bold">Sept 2025 — Present</div>
+                        <h3 class="h4 text-primary mb-1">UHI | B11 Philology</h3>
+                        <p class="text-muted fw-500 mb-3">1st Year Student</p>
+                        <p>Studying at the Ukrainian Humanities Institute in Bucha. Primary focus on translation theory,
+                            English linguistics, and grammar deep-dives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Track Card -->
+            <div class="timeline-item left-track">
+                <div class="timeline-dot"></div>
+                <div class="card timeline-content-card">
+                    <div class="timeline-date p-2 rounded mb-3 bg-secondary small fw-bold">Early 2023 — Present</div>
+                    <h3 class="h4 text-primary mb-1">SirHurt Moderation & Support</h3>
+                    <p class="text-muted fw-500 mb-3">Moderator & Customer Support Representative</p>
+                    <p>Managing support requests and maintaining community standards while assisting users with
+                        technical troubleshooting in a high-traffic environment.</p>
+                </div>
+            </div>
+
+            <!-- Olympiad Track Card -->
+            <div class="timeline-item right-track">
+                <div class="timeline-dot"></div>
+                <div class="card timeline-content-card">
+                    <div class="timeline-date p-2 rounded mb-3 bg-secondary small fw-bold">2022 — 2025</div>
+                    <h3 class="h4 text-primary mb-1">Olympiad Excellence</h3>
+                    <p class="text-muted fw-500 mb-3">English Language Olympics Winner (9-11 Grade)</p>
+                    <p>Multiple winner of student English language competitions, demonstrating exceptional command
+                        of grammar, vocabulary, and linguistic analysis.</p>
+                </div>
+            </div>
+
+            <!-- Tutoring/Practice Track Card -->
+            <div class="timeline-item left-track">
+                <div class="timeline-dot"></div>
+                <div class="card timeline-content-card">
+                    <div class="timeline-date p-2 rounded mb-3 bg-secondary small fw-bold">Late 2020 — 2025</div>
+                    <h3 class="h4 text-primary mb-1">Peer Linguistic Tutoring</h3>
+                    <p class="text-muted fw-500 mb-3">Private Grammar Mentor</p>
+                    <p>Experienced in mentoring peers, breaking down complex grammatical structures into accessible
+                        educational materials and preparing pupils for advanced exams.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .timeline-container {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .timeline-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, var(--card-border), var(--card-border), transparent);
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        width: 50%;
+        padding: 0 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .right-track {
+        left: 50%;
+    }
+
+    .left-track {
+        left: 0;
+        text-align: right;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        top: 1.5rem;
+        width: 16px;
+        height: 16px;
+        background-color: var(--primary-color);
+        border: 4px solid var(--card-bg);
+        border-radius: 50%;
+        z-index: 10;
+    }
+
+    .timeline-dot-special {
+        position: absolute;
+        top: 1rem;
+        width: 32px;
+        height: 32px;
+        background-color: var(--card-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+        z-index: 10;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .right-track .timeline-dot {
+        left: -8px;
+    }
+
+    .left-track .timeline-dot {
+        right: -8px;
+    }
+
+    .timeline-content-card {
+        margin: 0 !important;
+        transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content-card {
+        transform: scale(1.02);
+    }
+
+    .timeline-date {
+        display: inline-block;
+        color: var(--text-color);
+    }
+
+    @@media (max-width: 768px) {
+        .timeline-container::before {
+            left: 2rem;
+        }
+
+        .timeline-item {
+            width: 100%;
+            left: 0;
+            padding-left: 5rem;
+            padding-right: 0;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            left: calc(2rem - 8px) !important;
+            right: auto !important;
+        }
+
+        .timeline-dot-special {
+            left: 2rem !important;
+            transform: translateX(-50%);
+        }
+    }
+</style>
