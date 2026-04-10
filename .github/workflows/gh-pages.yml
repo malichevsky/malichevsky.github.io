@@ -44,11 +44,6 @@ jobs:
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
 
-    # Copy .well-known directory (e.g. for discord validation)
-    - name: Copy .well-known
-      run: cp -r .well-known release/wwwroot/
-
-
     - name: Setup Pages
       uses: actions/configure-pages@v5
 
